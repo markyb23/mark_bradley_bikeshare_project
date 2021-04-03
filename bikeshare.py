@@ -37,14 +37,14 @@ def get_filters():
     # The following code requests user input for choice of month.
     while True:
         month = 'All'
-        month_filter = input('\nWould you like to filter by month? (Yes or No)\n')
-        if month_filter.title() == 'Yes':
+        month_filter = input('\nWould you like to filter by month? (Y/N)\n')
+        if month_filter.title() == 'Y':
             month = input('\nWhich month would you like to explore data for, January, February, March, April, May or June?\n')
             month = month.title()
-        elif month_filter.title() =='No':
+        elif month_filter.title() =='N':
             break
         else:
-            print('You have entered an invalid respose. Please try again.')
+            print('You have entered an invalid response. Please try again.')
             continue
         if month not in months:
             print('We do not have data for that month please try again.')
@@ -55,14 +55,14 @@ def get_filters():
     # The following code requests user input for choice of day.
     while True:
         day = 'All'
-        day_filter = input('\nWould you like to filter by day? (Yes or No)\n')
-        if day_filter.title() == 'Yes':
+        day_filter = input('\nWould you like to filter by day? (Y/N)\n')
+        if day_filter.title() == 'Y':
             day = input('\nWhich day of the week would you like to explore data for?\n')
             day = day.title()
-        elif day_filter.title() =='No':
+        elif day_filter.title() =='N':
             break
         else:
-            print('You have entered an invalid respose. Please try again.')
+            print('You have entered an invalid response. Please try again.')
             continue
         if day not in days:
             print('Your input is invalid, please try again.\n')
@@ -101,7 +101,7 @@ def load_data(city, month, day):
 
     # extract month and day of week from Start Time to create new columns
     df['Month'] = df['Start Time'].dt.month
-    df['Day of Week'] = df['Start Time'].dt.weekday_name
+    df['Day of Week'] = df['Start Time'].dt.day_name()
 
     # filter by month if applicable
     if month != 'All':
@@ -169,7 +169,7 @@ def station_stats(df):
     df['Journey'] = df['Start Station'] +' and ended at ' + df['End Station']
     max_journeys = df.groupby(['Journey'])['Journey'].count().max()
     popular_journey = df['Journey'].mode()[0]
-    print('The most common journey started at {}. This trip was taken on {} occassions.'.format(popular_journey, max_journeys))
+    print('The most common journey started at {}. This trip was taken on {} occasions.'.format(popular_journey, max_journeys))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -249,7 +249,7 @@ def main():
         #while True:
         indices = [0, 1, 2, 3, 4]
         while True:
-            view_data = input('\nWould you like to view some raw data? Enter Y for Yes or N for No.\n')
+            view_data = input('\nWould you like to view some raw data? (Y/N)\n')
             if view_data.title() != 'Y':
                 break
             elif view_data.title() == 'Y':
@@ -260,8 +260,8 @@ def main():
                 indices[3] += 5
                 indices[4] += 5
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+        restart = input('\nWould you like to restart? (Y/N)\n')
+        if restart.lower() != 'y':
             break
 
 
