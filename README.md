@@ -23,4 +23,4 @@ Python file:
 bikeshare.py
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Credit to Juno and Richard from Udacity for developing the training materials that enabled me to create the bikeshare project and to stage it on Git Hub.
