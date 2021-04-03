@@ -37,11 +37,11 @@ def get_filters():
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         month = 'All'
-        month_filter = input('\nWould you like to filter by month? (Yes or No)\n')
-        if month_filter.title() == 'Yes':
+        month_filter = input('\nWould you like to filter by month? (Y/N)\n')
+        if month_filter.title() == 'Y':
             month = input('\nWhich month would you like to explore data for, January, February, March, April, May or June?\n')
             month = month.title()
-        elif month_filter.title() =='No':
+        elif month_filter.title() =='N':
             break
         else:
             print('You have entered an invalid response. Please try again.')
@@ -55,11 +55,11 @@ def get_filters():
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = 'All'
-        day_filter = input('\nWould you like to filter by day? (Yes or No)\n')
-        if day_filter.title() == 'Yes':
+        day_filter = input('\nWould you like to filter by day? (Y/N)\n')
+        if day_filter.title() == 'Y':
             day = input('\nWhich day of the week would you like to explore data for?\n')
             day = day.title()
-        elif day_filter.title() =='No':
+        elif day_filter.title() =='N':
             break
         else:
             print('You have entered an invalid response. Please try again.')
@@ -249,7 +249,7 @@ def main():
         #while True:
         indices = [0, 1, 2, 3, 4]
         while True:
-            view_data = input('\nWould you like to view some raw data? Enter Y for Yes or N for No.\n')
+            view_data = input('\nWould you like to view some raw data? (Y/N)\n')
             if view_data.title() != 'Y':
                 break
             elif view_data.title() == 'Y':
@@ -260,8 +260,8 @@ def main():
                 indices[3] += 5
                 indices[4] += 5
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+        restart = input('\nWould you like to restart? (Y/N)\n')
+        if restart.lower() != 'y':
             break
 
 
