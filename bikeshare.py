@@ -44,7 +44,7 @@ def get_filters():
         elif month_filter.title() =='No':
             break
         else:
-            print('You have entered an invalid respose. Please try again.')
+            print('You have entered an invalid response. Please try again.')
             continue
         if month not in months:
             print('We do not have data for that month please try again.')
@@ -62,7 +62,7 @@ def get_filters():
         elif day_filter.title() =='No':
             break
         else:
-            print('You have entered an invalid respose. Please try again.')
+            print('You have entered an invalid response. Please try again.')
             continue
         if day not in days:
             print('Your input is invalid, please try again.\n')
@@ -169,7 +169,7 @@ def station_stats(df):
     df['Journey'] = df['Start Station'] +' and ended at ' + df['End Station']
     max_journeys = df.groupby(['Journey'])['Journey'].count().max()
     popular_journey = df['Journey'].mode()[0]
-    print('The most common journey started at {}. This trip was taken on {} occassions.'.format(popular_journey, max_journeys))
+    print('The most common journey started at {}. This trip was taken on {} occasions.'.format(popular_journey, max_journeys))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
